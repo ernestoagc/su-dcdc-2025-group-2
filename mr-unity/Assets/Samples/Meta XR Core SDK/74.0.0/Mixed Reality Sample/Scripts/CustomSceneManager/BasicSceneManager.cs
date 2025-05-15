@@ -37,7 +37,6 @@ using UnityEngine;
 public class BasicSceneManager : MonoBehaviour
 {
     [SerializeField] private Transform _trackingSpace;
-    [SerializeField] private Material _material;
 
     void Start()
     {
@@ -103,7 +102,7 @@ public class BasicSceneManager : MonoBehaviour
             gameObject.transform.SetParent(roomGameObject.transform);
 
             // set location and create objects for 2D, 3D, triangle mesh
-            var helper = new SceneManagerHelper(gameObject, _trackingSpace, _material);
+            var helper = new SceneManagerHelper(gameObject, _trackingSpace);
             helper.SetLocation(locatable);
 
             if (anchor.TryGetComponent(out OVRBounded2D b2d) && b2d.IsEnabled)

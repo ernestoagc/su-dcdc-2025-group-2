@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SnapSolarPanel : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class SnapSolarPanel : MonoBehaviour
 
         if (other.CompareTag("SnapZone"))
         {
-            
+            // Snap to the snap zone's position and rotation
             Transform snapPoint = other.transform;
 
             transform.position = snapPoint.position;
@@ -18,6 +19,5 @@ public class SnapSolarPanel : MonoBehaviour
 
             isSnapped = true;
 
+            
         }
-    }
-}

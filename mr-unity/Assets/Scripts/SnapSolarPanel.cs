@@ -19,5 +19,8 @@ public class SnapSolarPanel : MonoBehaviour
 
             isSnapped = true;
 
-            
+
         }
+
+    }
+}

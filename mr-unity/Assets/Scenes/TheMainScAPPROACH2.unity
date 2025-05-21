@@ -4722,10 +4722,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8727292388172191145, guid: 7f869b218054c46568323ca36cbbc3b7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 302954780}
+      addedObject: {fileID: 302954781}
     - targetCorrespondingSourceObject: {fileID: 8727292388172191145, guid: 7f869b218054c46568323ca36cbbc3b7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 302954779}
+      addedObject: {fileID: 302954780}
   m_SourcePrefab: {fileID: 100100000, guid: 7f869b218054c46568323ca36cbbc3b7, type: 3}
 --- !u!1 &302954777 stripped
 GameObject:
@@ -4737,18 +4737,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4644332435381664385, guid: 7f869b218054c46568323ca36cbbc3b7, type: 3}
   m_PrefabInstance: {fileID: 302954776}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &302954779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302954777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db6a26c91fe7140b6bae44bb097dcb19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &302954780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4776,6 +4764,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &302954781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302954777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157cefab894b4684ab57605ee6b268d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &304202582
 GameObject:
   m_ObjectHideFlags: 0
@@ -10009,6 +10009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6a26c91fe7140b6bae44bb097dcb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapTarget: {fileID: 1512190169}
 --- !u!54 &715929040
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10166,6 +10167,59 @@ Transform:
   - {fileID: 316661876}
   m_Father: {fileID: 2144766466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &724152491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 724152493}
+  - component: {fileID: 724152492}
+  m_Layer: 0
+  m_Name: SolarPanelSnap (1)
+  m_TagString: SnapZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &724152492
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724152491}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.48342443, y: 0.047376566, z: 0.17024757}
+  m_Center: {x: 0.14627247, y: 0.42042372, z: 0.004799597}
+--- !u!4 &724152493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724152491}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.0890608, w: 0.9960262}
+  m_LocalPosition: {x: -0.356, y: 0.33288276, z: 0.1452}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.219}
 --- !u!1 &724734887
 GameObject:
   m_ObjectHideFlags: 0
@@ -29409,4 +29463,5 @@ SceneRoots:
   - {fileID: 6490172606502406321}
   - {fileID: 302954776}
   - {fileID: 1512190169}
+  - {fileID: 724152493}
   - {fileID: 1247089524}

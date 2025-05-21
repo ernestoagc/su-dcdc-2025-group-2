@@ -28,7 +28,7 @@ TagManager:
   - QDSUITextInputField
   - SamplesInfoPanel
   - QDSUIToggleCheckboxRadio
-  - SnapZone
+  - Trash
   layers:
   - Default
   - TransparentFX

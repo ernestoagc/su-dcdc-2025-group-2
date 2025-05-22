@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TheMainSc.unity
-    guid: 5a98f013d5e56411293a54b5dec765ed
+    path: Assets/Scenes/SolarPanelScene.unity
+    guid: c11da64f989f345c3a1c31d71e9fa234
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: b07ad9a40662048b680e8c89fd125437, type: 2}

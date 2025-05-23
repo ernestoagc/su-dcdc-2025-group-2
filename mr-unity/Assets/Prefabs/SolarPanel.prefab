@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5811380833800388532}
   - component: {fileID: 5935422858129643740}
   - component: {fileID: 840588828502541067}
+  - component: {fileID: 2733877736627219852}
+  - component: {fileID: 909488901993725560}
   m_Layer: 0
   m_Name: SolarPanel
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8727292388172191145}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.12807369, w: 0.99176466}
+  m_LocalRotation: {x: 0, y: 0, z: -0.12807731, w: 0.9917642}
   m_LocalPosition: {x: 0.293, y: 0.778, z: 0.155}
   m_LocalScale: {x: 0.5, y: 0.04, z: 0.2}
   m_ConstrainProportionsScale: 0
@@ -108,3 +110,42 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &2733877736627219852
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727292388172191145}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &909488901993725560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727292388172191145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c46e94949e0cbc4eb9a1e484b311a5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

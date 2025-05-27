@@ -15269,6 +15269,9 @@ MonoBehaviour:
   _txtMember: {fileID: 163202624}
   _txtPanel: {fileID: 2042418749}
   _txtTotalEnergy: {fileID: 1011483214}
+  roofAssets: []
+  panels: []
+  spawnSolarPanel: {fileID: 0}
   angleInterval: 15
 --- !u!4 &1217620690
 Transform:

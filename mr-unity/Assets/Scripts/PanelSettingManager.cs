@@ -10,10 +10,15 @@ public class PanelSettingManager : MonoBehaviour
     [SerializeField] private TMP_InputField _txtMember;
     [SerializeField] private TMP_InputField _txtPanel;
     [SerializeField] private TMP_InputField _txtTotalEnergy;
+    [SerializeField] private List<GameObject> roofAssets;
+    //private List<GameObject> panels;
+    [SerializeField] private SpawnSolarPanel spawnSolarPanel;
+    //[SerializeField] private GameObject roofPanel15;
+    //[SerializeField] private GameObject roofSnap15;
+    //[SerializeField] private GameObject roofPanel30;
+    //[SerializeField] private GameObject roofSnap30;
 
-   
-
-    [SerializeField] private int angleInterval=25;
+    [SerializeField] private int angleInterval=15;
     private WeatherApiManager weatherApiManager;
 
     
@@ -25,6 +30,7 @@ public class PanelSettingManager : MonoBehaviour
     void Start()
     {
         weatherApiManager = GameObject.Find("WeatherApiManager").GetComponent<WeatherApiManager>();
+        //spawnSolarPanel = GameObject.Find("SpawnSolarPanel").GetComponent<SpawnSolarPanel>();
     }
 
     // Update is called once per frame
@@ -47,11 +53,7 @@ public class PanelSettingManager : MonoBehaviour
         _txtTotalEnergy.text = response.totalEnergy.ToString();
     }
     
-    public void OnToggleChanged()
-    {
-        Toggle toggle = GetComponent<Toggle>();
-        _txtTotalEnergy.text = toggle.name;
-    }
+
 
     public void ChangeAngle(string type)
     {
@@ -63,6 +65,8 @@ public class PanelSettingManager : MonoBehaviour
                 {
                     currentAngle=currentAngle+angleInterval;
                 }
+                showRoofAsset(currentAngle);
+                destroyPanels();
                 _txtAngle.text = currentAngle.ToString();
                 break;
            
@@ -72,42 +76,76 @@ public class PanelSettingManager : MonoBehaviour
                    currentAngle=currentAngle-angleInterval;
                }
 
+               showRoofAsset(currentAngle);
+               destroyPanels();
                _txtAngle.text = currentAngle.ToString();
                break;
             
             default:
+                showRoofAsset(currentAngle);
                 break;
         }
         
     }
-    
-    
-    public void ChangePanel(string type)
-    {
 
-        switch (type)
+    private void showRoofAsset(int currentAngle)
+    {
+        
+        switch (currentAngle)
         {
-            case "1":
-                currentPanel++;
-                _txtPanel.text = currentPanel.ToString();
+            case 15:
+                foreach (var asset in roofAssets)
+                {
+                    if (asset.CompareTag("PanelRoof15"))
+                    {
+                        asset.SetActive(true);
+                    }
+                    else
+                    {
+                        asset.SetActive(false);
+                    }
+                }
                 break;
            
-            case "0":
-                if (currentPanel > 0)
+            case 30:
+                foreach (var asset in roofAssets)
                 {
-                    currentPanel--;
+                    if (asset.CompareTag("PanelRoof30"))
+                    {
+                        asset.SetActive(true);
+                    }
+                    else
+                    {
+                        asset.SetActive(false);
+                    }
                 }
-
-                _txtPanel.text = currentPanel.ToString();
                 break;
             
             default:
+                foreach (var asset in roofAssets)
+                {
+                        asset.SetActive(false);
+                }
                 break;
         }
         
     }
-    
-    
+
+    private void destroyPanels()
+    {
+        spawnSolarPanel.destroyPanels();
+        _txtPanel.text =spawnSolarPanel.getSolarPanels().Count.ToString();
+    }
+
+
+
+    public void AddPanel()
+    {
+        spawnSolarPanel.SpawnObject();
+        _txtPanel.text =spawnSolarPanel.getSolarPanels().Count.ToString();
+    }
+
+
     public void ChangeMember(string type)
     {
 

@@ -10,6 +10,13 @@ public class PanelSettingManager : MonoBehaviour
     [SerializeField] private TMP_InputField _txtMember;
     [SerializeField] private TMP_InputField _txtPanel;
     [SerializeField] private TMP_InputField _txtTotalEnergy;
+    
+    [SerializeField] private TextMeshProUGUI _lblConsumptionEnergy;
+    [SerializeField] private TextMeshProUGUI _lblCity;
+    [SerializeField] private TextMeshProUGUI _lblAngle;
+    [SerializeField] private TextMeshProUGUI _lblTotalPanelEnergy;
+    
+    
     [SerializeField] private List<GameObject> roofAssets;
     //private List<GameObject> panels;
     [SerializeField] private SpawnSolarPanel spawnSolarPanel;
@@ -19,17 +26,19 @@ public class PanelSettingManager : MonoBehaviour
     //[SerializeField] private GameObject roofSnap30;
 
     [SerializeField] private int angleInterval=15;
+    
+    [SerializeField] private int energyConsumptionAverage=100;
     private WeatherApiManager weatherApiManager;
 
     
     
     private int currentAngle = 0;
-    private int currentPanel = 0;
     private int currentMember = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         weatherApiManager = GameObject.Find("WeatherApiManager").GetComponent<WeatherApiManager>();
+        _lblConsumptionEnergy.text = energyConsumptionAverage.ToString();
         //spawnSolarPanel = GameObject.Find("SpawnSolarPanel").GetComponent<SpawnSolarPanel>();
     }
 
@@ -51,6 +60,9 @@ public class PanelSettingManager : MonoBehaviour
         SolarEnergyResponse response = weatherApiManager.getSolarEnergyResponse();
 
         _txtTotalEnergy.text = response.totalEnergy.ToString();
+        _lblTotalPanelEnergy.text= response.totalEnergy.ToString();
+        
+        _lblCity.text = response.city;
     }
     
 
@@ -61,13 +73,14 @@ public class PanelSettingManager : MonoBehaviour
         switch (type)
         {
            case "1":
-                if (currentAngle < 90)
+                if (currentAngle < 75)
                 {
                     currentAngle=currentAngle+angleInterval;
                 }
                 showRoofAsset(currentAngle);
                 destroyPanels();
                 _txtAngle.text = currentAngle.ToString();
+                _lblAngle.text = currentAngle.ToString();
                 break;
            
            case "0":
@@ -79,6 +92,7 @@ public class PanelSettingManager : MonoBehaviour
                showRoofAsset(currentAngle);
                destroyPanels();
                _txtAngle.text = currentAngle.ToString();
+               _lblAngle.text = currentAngle.ToString();
                break;
             
             default:
@@ -120,6 +134,45 @@ public class PanelSettingManager : MonoBehaviour
                     }
                 }
                 break;
+            case 45:
+                foreach (var asset in roofAssets)
+                {
+                    if (asset.CompareTag("PanelRoof45"))
+                    {
+                        asset.SetActive(true);
+                    }
+                    else
+                    {
+                        asset.SetActive(false);
+                    }
+                }
+                break;
+            case 60:
+                foreach (var asset in roofAssets)
+                {
+                    if (asset.CompareTag("PanelRoof60"))
+                    {
+                        asset.SetActive(true);
+                    }
+                    else
+                    {
+                        asset.SetActive(false);
+                    }
+                }
+                break;
+            case 75:
+                foreach (var asset in roofAssets)
+                {
+                    if (asset.CompareTag("PanelRoof75"))
+                    {
+                        asset.SetActive(true);
+                    }
+                    else
+                    {
+                        asset.SetActive(false);
+                    }
+                }
+                break;
             
             default:
                 foreach (var asset in roofAssets)
@@ -143,6 +196,7 @@ public class PanelSettingManager : MonoBehaviour
     {
         spawnSolarPanel.SpawnObject();
         _txtPanel.text =spawnSolarPanel.getSolarPanels().Count.ToString();
+        
     }
 
 
@@ -153,6 +207,7 @@ public class PanelSettingManager : MonoBehaviour
         {
             case "1":
                 currentMember++;
+                _lblConsumptionEnergy.text = (energyConsumptionAverage*currentMember).ToString();
                 _txtMember.text = currentMember.ToString();
                 break;
            
@@ -162,6 +217,7 @@ public class PanelSettingManager : MonoBehaviour
                     currentMember--;
                 }
 
+                _lblConsumptionEnergy.text = (energyConsumptionAverage*currentMember).ToString();
                 _txtMember.text = currentMember.ToString();
                 break;
             

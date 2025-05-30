@@ -10554,6 +10554,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1752747485}
     m_Modifications:
+    - target: {fileID: 1041727706637385671, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a54d8ff731314735bce9578c4296b14, type: 2}
     - target: {fileID: 1545871173221490194, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
       propertyPath: m_Name
       value: Roof15
@@ -14343,6 +14347,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1752747485}
     m_Modifications:
+    - target: {fileID: 1041727706637385671, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a54d8ff731314735bce9578c4296b14, type: 2}
     - target: {fileID: 1545871173221490194, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
       propertyPath: m_Name
       value: Roof45
@@ -18081,6 +18089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1752747485}
     m_Modifications:
+    - target: {fileID: 1041727706637385671, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a54d8ff731314735bce9578c4296b14, type: 2}
     - target: {fileID: 1545871173221490194, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
       propertyPath: m_Name
       value: Roof60
@@ -20263,6 +20275,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1752747485}
     m_Modifications:
+    - target: {fileID: 1041727706637385671, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a54d8ff731314735bce9578c4296b14, type: 2}
     - target: {fileID: 1545871173221490194, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
       propertyPath: m_Name
       value: Roof75
@@ -23815,6 +23831,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2291547598488025086, guid: b2b2686cfe7f0cc4fbb5de2280f7e488, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e72f6e80962245acba8741e8baa376f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24389,7 +24409,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 8e72f6e80962245acba8741e8baa376f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37069,6 +37089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1752747485}
     m_Modifications:
+    - target: {fileID: 1041727706637385671, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a54d8ff731314735bce9578c4296b14, type: 2}
     - target: {fileID: 1545871173221490194, guid: ca27504a8c889ca4cbb4f1c952354c5a, type: 3}
       propertyPath: m_Name
       value: Roof30
@@ -46730,6 +46754,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2291547598488025086, guid: b2b2686cfe7f0cc4fbb5de2280f7e488, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e72f6e80962245acba8741e8baa376f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

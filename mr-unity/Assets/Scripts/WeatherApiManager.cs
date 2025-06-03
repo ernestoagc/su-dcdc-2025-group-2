@@ -1,63 +1,69 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
-using System.Collections.Generic;
 using Newtonsoft.Json;
-using System.IO;
+using Fusion;
+using System.Collections.Generic;
 
-public class WeatherApiManager : MonoBehaviour
+public class WeatherApiManager : NetworkBehaviour
 {
-    
-    private SolarEnergyResponse objSolarEnergy;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        objSolarEnergy = new SolarEnergyResponse();
+   [Networked] public int BestAngle { get; set; }
+   [Networked] public float TotalEnergy { get; set; }
+   [Networked] public float TotalOptimalEnergy { get; set; }
+   [Networked, Capacity(64)] public NetworkString<_64> City { get; set; }
 
-    }
-    
+   private SolarEnergyResponse localResponse = new SolarEnergyResponse();
+
+   public override void Spawned()
+   {
+      // optional: auto-fetch when spawned if authority
+      if (HasStateAuthority)
+      {
+         // example auto-fetch
+         // callingSolarEnergyApi("Berlin", "30", "10");
+      }
+   }
+
+   public void callingSolarEnergyApi(string location, string angle, string quantityPanel)
+   {
+      if (HasStateAuthority) // only fetch from one authoritative source
+         StartCoroutine(GetData(location, angle, quantityPanel));
+   }
+
    private IEnumerator GetData(string location, string angle, string quantityPanel)
-    {
-        string url = "https://ms-solar-energy-dcdc-production.up.railway.app/panel/energy?location="
-                     + location+"&angle="+angle + "&quantityPanel=" + quantityPanel; // Reemplaza con tu URL
-        Debug.Log(url);
-        
-        using (UnityWebRequest request = UnityWebRequest.Get(url))
-        {
-            yield return request.SendWebRequest();
+   {
+      string url = $"https://ms-solar-energy-dcdc-production.up.railway.app/panel/energy?location={location}&angle={angle}&quantityPanel={quantityPanel}";
+      Debug.Log($"Requesting: {url}");
 
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                string json = request.downloadHandler.text;
+      using (UnityWebRequest request = UnityWebRequest.Get(url))
+      {
+         yield return request.SendWebRequest();
 
-                // Parsear el JSON a tu clase
-                SolarEnergyResponse response = JsonConvert.DeserializeObject<SolarEnergyResponse>(json);
-                objSolarEnergy = response;
-                Debug.Log("Respuesta: " + request.downloadHandler.text);
-            }
-            else
-            {
-                Debug.LogError("Error: " + request.error);
-            }
-        }
-    }
+         if (request.result == UnityWebRequest.Result.Success)
+         {
+            string json = request.downloadHandler.text;
+            SolarEnergyResponse response = JsonConvert.DeserializeObject<SolarEnergyResponse>(json);
+            localResponse = response;
 
-    public void callingSolarEnergyApi(string location, string angle,string quantityPanel)
-    {
-        StartCoroutine(GetData(location,angle,quantityPanel));
-    }
+            Debug.Log("API Response: " + json);
 
-    public SolarEnergyResponse getSolarEnergyResponse()
-    {
-        return objSolarEnergy;
-    }
+            // Sync networked fields (basic data only)
+            BestAngle = response.bestAngle;
+            TotalEnergy = response.totalEnergy;
+            TotalOptimalEnergy = response.totalOptimalEnergy;
+            City = response.city;
+         }
+         else
+         {
+            Debug.LogError("API Error: " + request.error);
+         }
+      }
+   }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   public SolarEnergyResponse GetLocalResponse()
+   {
+      return localResponse;
+   }
 }
 
 

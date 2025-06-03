@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.IO;
 
 public class WeatherApiManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class WeatherApiManager : MonoBehaviour
     {
         string url = "https://ms-solar-energy-dcdc-production.up.railway.app/panel/energy?location="
                      + location+"&angle="+angle + "&quantityPanel=" + quantityPanel; // Reemplaza con tu URL
+        Debug.Log(url);
         
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
@@ -28,12 +30,16 @@ public class WeatherApiManager : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
-                
-                string json = request.downloadHandler.text;
+
+                string asdf = request.ToString();
+                Debug.LogWarning(asdf.);
+                string json = request.result.ToString();
+                // string json = File.ReadAllText("Assets/Scripts/TestJSON.json");
 
                 // Parsear el JSON a tu clase
                 SolarEnergyResponse response = JsonConvert.DeserializeObject<SolarEnergyResponse>(json);
                 objSolarEnergy = response;
+                Debug.LogError(response.city);
                 Debug.Log("Respuesta: " + request.downloadHandler.text);
             }
             else

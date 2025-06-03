@@ -1,0 +1,92 @@
+{
+  "bestAngle": 37,
+  "city": "Madrid",
+  "months": [
+    {
+      "year": 2023,
+      "month": 1,
+      "temperature": 5.2,
+      "energy": 78.27,
+      "optimalEnergy": 146.07
+    },
+    {
+      "year": 2023,
+      "month": 2,
+      "temperature": 5.5,
+      "energy": 101.06,
+      "optimalEnergy": 160.02
+    },
+    {
+      "year": 2023,
+      "month": 3,
+      "temperature": 12,
+      "energy": 157.38,
+      "optimalEnergy": 204.79
+    },
+    {
+      "year": 2023,
+      "month": 4,
+      "temperature": 17.2,
+      "energy": 202.72,
+      "optimalEnergy": 225.32
+    },
+    {
+      "year": 2023,
+      "month": 5,
+      "temperature": 17.6,
+      "energy": 207.26,
+      "optimalEnergy": 202.54
+    },
+    {
+      "year": 2023,
+      "month": 6,
+      "temperature": 22.8,
+      "energy": 206.69,
+      "optimalEnergy": 190.94
+    },
+    {
+      "year": 2023,
+      "month": 7,
+      "temperature": 28,
+      "energy": 246.42,
+      "optimalEnergy": 232.06
+    },
+    {
+      "year": 2023,
+      "month": 8,
+      "temperature": 27.8,
+      "energy": 220.22,
+      "optimalEnergy": 230
+    },
+    {
+      "year": 2023,
+      "month": 9,
+      "temperature": 19.7,
+      "energy": 138.76,
+      "optimalEnergy": 165.72
+    },
+    {
+      "year": 2023,
+      "month": 10,
+      "temperature": 16.7,
+      "energy": 104.9,
+      "optimalEnergy": 140.62
+    },
+    {
+      "year": 2023,
+      "month": 11,
+      "temperature": 10.6,
+      "energy": 70.42,
+      "optimalEnergy": 115.8
+    },
+    {
+      "year": 2023,
+      "month": 12,
+      "temperature": 5.6,
+      "energy": 64.82,
+      "optimalEnergy": 125.51
+    }
+  ],
+  "totalEnergy": 0,
+  "totalOptimalEnergy": 0
+}

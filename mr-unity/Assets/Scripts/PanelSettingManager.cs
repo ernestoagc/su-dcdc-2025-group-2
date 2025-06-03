@@ -29,8 +29,6 @@ public class PanelSettingManager : MonoBehaviour
     
     [SerializeField] private int energyConsumptionAverage=100;
     private WeatherApiManager weatherApiManager;
-
-    
     
     private int currentAngle = 0;
     private int currentMember = 0;
@@ -40,6 +38,7 @@ public class PanelSettingManager : MonoBehaviour
         weatherApiManager = GameObject.Find("WeatherApiManager").GetComponent<WeatherApiManager>();
         _lblConsumptionEnergy.text = energyConsumptionAverage.ToString();
         //spawnSolarPanel = GameObject.Find("SpawnSolarPanel").GetComponent<SpawnSolarPanel>();
+        OnCityChange("MAD");
     }
 
     // Update is called once per frame
@@ -59,10 +58,12 @@ public class PanelSettingManager : MonoBehaviour
         weatherApiManager.callingSolarEnergyApi(city,_txtAngle.text, _txtPanel.text );
         SolarEnergyResponse response = weatherApiManager.getSolarEnergyResponse();
 
+        Debug.LogWarning(response);
         _txtTotalEnergy.text = response.totalEnergy.ToString();
         _lblTotalPanelEnergy.text= response.totalEnergy.ToString();
         
         _lblCity.text = response.city;
+        Debug.Log(city);
     }
     
 

@@ -32,10 +32,11 @@ public class PanelSettingManager : NetworkBehaviour
    void Start()
    {
       weatherApiManager = FindAnyObjectByType<WeatherApiManager>();
-      weatherApiManager.OnCityChanged += UpdateUiFromResponse;
+      weatherApiManager.OnCityChanged += UpdateTabletUiFromResponse;
+      weatherApiManager.OnControlUiChanged += UpdateControlUiFromResponse;
    }
 
-   private void UpdateUiFromResponse()
+   private void UpdateTabletUiFromResponse()
    {
       if (weatherApiManager != null)
       {
@@ -46,13 +47,31 @@ public class PanelSettingManager : NetworkBehaviour
       }
    }
 
+   private void UpdateControlUiFromResponse()
+   {
+      if (weatherApiManager != null)
+      {
+         if (int.Parse(weatherApiManager.PanelCount) < int.Parse(_txtPanel.text)) {
+            spawnSolarPanel.destroyPanels();
+         } else if (int.Parse(weatherApiManager.PanelCount) > int.Parse(_txtPanel.text))
+         {
+            spawnSolarPanel.SpawnObject();
+         }
+
+         _txtAngle.text = weatherApiManager.Angle;
+         _txtPanel.text = weatherApiManager.PanelCount;
+         _txtMember.text = weatherApiManager.MemberCount;
+
+         currentAngle = int.Parse(_txtAngle.text);
+         showRoofAsset(currentAngle);
+      }
+   }
+
    public void OnCityChange(string city)
    {
       if (weatherApiManager != null)
       {
          weatherApiManager.ChangeCity(city, _txtAngle.text, _txtPanel.text);
-
-         // Invoke(nameof(UpdateUiFromResponse), 2f); // Delay to let RPC complete (or add a callback/event)
       }
       else
       {
@@ -62,7 +81,7 @@ public class PanelSettingManager : NetworkBehaviour
 
    public void ChangeAngle(string type)
    {
-
+      Debug.LogWarning("Changing angle");
       switch (type)
       {
          case "1":
@@ -93,6 +112,8 @@ public class PanelSettingManager : NetworkBehaviour
             break;
       }
 
+      weatherApiManager.Angle = currentAngle.ToString();
+      weatherApiManager.RPC_SetControlUi(_txtAngle.text, _txtMember.text, _txtPanel.text);
    }
 
    private void showRoofAsset(int currentAngle)
@@ -181,20 +202,26 @@ public class PanelSettingManager : NetworkBehaviour
    {
       spawnSolarPanel.destroyPanels();
       _txtPanel.text = spawnSolarPanel.getSolarPanels().Count.ToString();
+      weatherApiManager.PanelCount = _txtPanel.text;
+      weatherApiManager.RPC_SetControlUi(_txtAngle.text, _txtMember.text, _txtPanel.text);
    }
 
 
 
    public void AddPanel()
    {
+      Debug.LogWarning("Adding Panel");
+
       spawnSolarPanel.SpawnObject();
       _txtPanel.text = spawnSolarPanel.getSolarPanels().Count.ToString();
-
+      weatherApiManager.PanelCount = _txtPanel.text;
+      weatherApiManager.RPC_SetControlUi(_txtAngle.text, _txtMember.text, _txtPanel.text);
    }
 
 
    public void ChangeMember(string type)
    {
+      Debug.LogWarning("Changing members");
 
       switch (type)
       {
@@ -219,6 +246,4 @@ public class PanelSettingManager : NetworkBehaviour
       }
 
    }
-
-
 }

@@ -14,12 +14,14 @@ public class WeatherApiManager : NetworkBehaviour
    [Networked] public string City { get; set; }
    [Networked] public string Angle { get; set; }
    [Networked] public string PanelCount { get; set; }
+   [Networked] public string MemberCount { get; set; }
    [Networked] public int BestAngle { get; set; }
 
    [Networked] public float TotalEnergy { get; set; }
    [Networked] public float TotalOptimalEnergy { get; set; }
 
    public event Action OnCityChanged;
+   public event Action OnControlUiChanged;
 
    private SolarEnergyResponse parsedResponse;
 
@@ -36,6 +38,14 @@ public class WeatherApiManager : NetworkBehaviour
       StartCoroutine(GetData(city, angle, panelCount));
    }
 
+   [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+   public void RPC_SetControlUi(string angle, string memberCount, string panelCount)
+   {
+      Angle = angle;
+      MemberCount = memberCount;
+      PanelCount = panelCount;
+   }
+
    public override void Render()
    {
       foreach (var change in _changeDetector.DetectChanges(this))
@@ -46,17 +56,34 @@ public class WeatherApiManager : NetworkBehaviour
                Debug.LogWarning("Detected CHange");
                OnCityChanged?.Invoke();
                break;
+            case nameof(Angle):
+               Debug.LogWarning("Detected CHange");
+               OnControlUiChanged?.Invoke();
+               break;
+            case nameof(PanelCount):
+               Debug.LogWarning("Detected CHange");
+               OnControlUiChanged?.Invoke();
+               break;
+            case nameof(MemberCount):
+               Debug.LogWarning("Detected CHange");
+               OnControlUiChanged?.Invoke();
+               break;
          }
       }
    }
 
-   public void ChangeCity(string city, string angle, string panelCount) {
+   public void ChangeCity(string city, string angle, string panelCount)
+   {
       Debug.LogWarning("Changing City, HasStateAuthority: " + HasStateAuthority);
-      
+
       RPC_RequestApiData(city, angle, panelCount);
+   }
 
-      //StartCoroutine(GetData(city, angle, panelCount));
+   public void SetControlUi(string angle, string members, string panelCount)
+   {
+      Debug.LogWarning("Changing angle, HasStateAuthority: " + HasStateAuthority);
 
+      RPC_SetControlUi(angle, members, panelCount);
    }
 
    private IEnumerator GetData(string location, string angle, string quantityPanel)

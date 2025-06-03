@@ -5,18 +5,18 @@ using Meta.XR.MRUtilityKit;
 using UnityEngine.UI;
 public class PanelSettingManager : MonoBehaviour
 {
-    
+
     [SerializeField] private TMP_InputField _txtAngle;
     [SerializeField] private TMP_InputField _txtMember;
     [SerializeField] private TMP_InputField _txtPanel;
     [SerializeField] private TMP_InputField _txtTotalEnergy;
-    
+
     [SerializeField] private TextMeshProUGUI _lblConsumptionEnergy;
     [SerializeField] private TextMeshProUGUI _lblCity;
     [SerializeField] private TextMeshProUGUI _lblAngle;
     [SerializeField] private TextMeshProUGUI _lblTotalPanelEnergy;
-    
-    
+
+
     [SerializeField] private List<GameObject> roofAssets;
     //private List<GameObject> panels;
     [SerializeField] private SpawnSolarPanel spawnSolarPanel;
@@ -25,18 +25,18 @@ public class PanelSettingManager : MonoBehaviour
     //[SerializeField] private GameObject roofPanel30;
     //[SerializeField] private GameObject roofSnap30;
 
-    [SerializeField] private int angleInterval=15;
-    
-    [SerializeField] private int energyConsumptionAverage=100;
+    [SerializeField] private int angleInterval = 15;
+
+    [SerializeField] private int energyConsumptionAverage = 100;
     private WeatherApiManager weatherApiManager;
-    
+
     private int currentAngle = 0;
     private int currentMember = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         weatherApiManager = GameObject.Find("WeatherApiManager").GetComponent<WeatherApiManager>();
-        _lblConsumptionEnergy.text = energyConsumptionAverage.ToString();
+        // _lblConsumptionEnergy.text = energyConsumptionAverage.ToString();
         //spawnSolarPanel = GameObject.Find("SpawnSolarPanel").GetComponent<SpawnSolarPanel>();
         OnCityChange("MAD");
     }
@@ -44,28 +44,37 @@ public class PanelSettingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void Awake()
     {
     }
-    
+
     public void OnCityChange(string city)
     {
-       
-        // Aquí puedes acceder al GameObject o un ID personalizado
-        weatherApiManager.callingSolarEnergyApi(city,_txtAngle.text, _txtPanel.text );
-        SolarEnergyResponse response = weatherApiManager.getSolarEnergyResponse();
 
-        Debug.LogWarning(response);
-        _txtTotalEnergy.text = response.totalEnergy.ToString();
-        _lblTotalPanelEnergy.text= response.totalEnergy.ToString();
-        
-        _lblCity.text = response.city;
-        Debug.Log(city);
+        // Aquí puedes acceder al GameObject o un ID personalizado
+        if (weatherApiManager != null)
+        {
+
+            weatherApiManager.callingSolarEnergyApi(city, _txtAngle.text, _txtPanel.text);
+            SolarEnergyResponse response = weatherApiManager.getSolarEnergyResponse();
+
+            Debug.LogWarning(response);
+            /*
+            _txtTotalEnergy.text = response.totalEnergy.ToString();
+            _lblTotalPanelEnergy.text = response.totalEnergy.ToString();
+            */
+            _lblCity.text = response.city;
+            Debug.Log(city);
+        }
+        else
+        {
+            Debug.LogError("WeatherAPIManager not set.");
+        }
     }
-    
+
 
 
     public void ChangeAngle(string type)
@@ -73,39 +82,39 @@ public class PanelSettingManager : MonoBehaviour
 
         switch (type)
         {
-           case "1":
+            case "1":
                 if (currentAngle < 75)
                 {
-                    currentAngle=currentAngle+angleInterval;
+                    currentAngle = currentAngle + angleInterval;
                 }
                 showRoofAsset(currentAngle);
                 destroyPanels();
                 _txtAngle.text = currentAngle.ToString();
                 _lblAngle.text = currentAngle.ToString();
                 break;
-           
-           case "0":
-               if (currentAngle > 0)
-               {
-                   currentAngle=currentAngle-angleInterval;
-               }
 
-               showRoofAsset(currentAngle);
-               destroyPanels();
-               _txtAngle.text = currentAngle.ToString();
-               _lblAngle.text = currentAngle.ToString();
-               break;
-            
+            case "0":
+                if (currentAngle > 0)
+                {
+                    currentAngle = currentAngle - angleInterval;
+                }
+
+                showRoofAsset(currentAngle);
+                destroyPanels();
+                _txtAngle.text = currentAngle.ToString();
+                _lblAngle.text = currentAngle.ToString();
+                break;
+
             default:
                 showRoofAsset(currentAngle);
                 break;
         }
-        
+
     }
 
     private void showRoofAsset(int currentAngle)
     {
-        
+
         switch (currentAngle)
         {
             case 15:
@@ -121,7 +130,7 @@ public class PanelSettingManager : MonoBehaviour
                     }
                 }
                 break;
-           
+
             case 30:
                 foreach (var asset in roofAssets)
                 {
@@ -174,21 +183,21 @@ public class PanelSettingManager : MonoBehaviour
                     }
                 }
                 break;
-            
+
             default:
                 foreach (var asset in roofAssets)
                 {
-                        asset.SetActive(false);
+                    asset.SetActive(false);
                 }
                 break;
         }
-        
+
     }
 
     private void destroyPanels()
     {
         spawnSolarPanel.destroyPanels();
-        _txtPanel.text =spawnSolarPanel.getSolarPanels().Count.ToString();
+        _txtPanel.text = spawnSolarPanel.getSolarPanels().Count.ToString();
     }
 
 
@@ -196,8 +205,8 @@ public class PanelSettingManager : MonoBehaviour
     public void AddPanel()
     {
         spawnSolarPanel.SpawnObject();
-        _txtPanel.text =spawnSolarPanel.getSolarPanels().Count.ToString();
-        
+        _txtPanel.text = spawnSolarPanel.getSolarPanels().Count.ToString();
+
     }
 
 
@@ -208,24 +217,24 @@ public class PanelSettingManager : MonoBehaviour
         {
             case "1":
                 currentMember++;
-                _lblConsumptionEnergy.text = (energyConsumptionAverage*currentMember).ToString();
+                _lblConsumptionEnergy.text = (energyConsumptionAverage * currentMember).ToString();
                 _txtMember.text = currentMember.ToString();
                 break;
-           
+
             case "0":
                 if (currentMember > 0)
                 {
                     currentMember--;
                 }
 
-                _lblConsumptionEnergy.text = (energyConsumptionAverage*currentMember).ToString();
+                _lblConsumptionEnergy.text = (energyConsumptionAverage * currentMember).ToString();
                 _txtMember.text = currentMember.ToString();
                 break;
-            
+
             default:
                 break;
         }
-        
+
     }
 
 

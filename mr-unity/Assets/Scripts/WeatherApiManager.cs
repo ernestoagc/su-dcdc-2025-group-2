@@ -29,14 +29,11 @@ public class WeatherApiManager : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
-
-                string json = request.result.ToString();
-                // string json = File.ReadAllText("Assets/Scripts/TestJSON.json");
+                string json = request.downloadHandler.text;
 
                 // Parsear el JSON a tu clase
                 SolarEnergyResponse response = JsonConvert.DeserializeObject<SolarEnergyResponse>(json);
                 objSolarEnergy = response;
-                Debug.LogError(response.city);
                 Debug.Log("Respuesta: " + request.downloadHandler.text);
             }
             else

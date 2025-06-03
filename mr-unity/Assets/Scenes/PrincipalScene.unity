@@ -2789,7 +2789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   solarPanel: {fileID: 8727292388172191145, guid: 7f869b218054c46568323ca36cbbc3b7, type: 3}
-  spawnPosition: {x: 0, y: 1, z: 0}
+  spawnPosition: {x: 0.04, y: 1, z: -0.4}
   maxSpawnCount: 8
 --- !u!4 &121899117
 Transform:
@@ -5016,19 +5016,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2760563340199940535, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2760563340199940535, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2760563340199940535, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2760563340199940535, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2892370056225337160, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_Color.a
@@ -6082,22 +6082,17 @@ MonoBehaviour:
   _txtAngle: {fileID: 870386571}
   _txtMember: {fileID: 1602091743}
   _txtPanel: {fileID: 1331981168}
-  _txtTotalEnergy: {fileID: 0}
+  _txtTotalEnergy: {fileID: 1331981168}
   _lblConsumptionEnergy: {fileID: 2060358531}
   _lblCity: {fileID: 686056398}
   _lblAngle: {fileID: 1805733251}
   _lblTotalPanelEnergy: {fileID: 444193261}
   roofAssets:
   - {fileID: 417733513}
-  - {fileID: 1203429272}
   - {fileID: 1615168579}
-  - {fileID: 892435542}
   - {fileID: 581334824}
-  - {fileID: 200246493}
   - {fileID: 761341813}
-  - {fileID: 662859522}
   - {fileID: 888918956}
-  - {fileID: 1699764452}
   spawnSolarPanel: {fileID: 121899116}
   angleInterval: 15
   energyConsumptionAverage: 100
@@ -9683,7 +9678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47d9a9f4723344d09e44c25848f4140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roofObject: {fileID: 417733513}
+  roofObject: {fileID: 0}
 --- !u!1 &425861957
 GameObject:
   m_ObjectHideFlags: 0
@@ -13476,7 +13471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47d9a9f4723344d09e44c25848f4140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roofObject: {fileID: 581334824}
+  roofObject: {fileID: 0}
 --- !u!1 &583186219
 GameObject:
   m_ObjectHideFlags: 0
@@ -17218,7 +17213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47d9a9f4723344d09e44c25848f4140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roofObject: {fileID: 761341813}
+  roofObject: {fileID: 0}
 --- !u!1 &765043910
 GameObject:
   m_ObjectHideFlags: 0
@@ -19266,7 +19261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47d9a9f4723344d09e44c25848f4140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roofObject: {fileID: 888918956}
+  roofObject: {fileID: 0}
 --- !u!1 &890747083
 GameObject:
   m_ObjectHideFlags: 0
@@ -20697,19 +20692,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8434824762051719496, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -21530,19 +21525,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8434824762051719496, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -26571,19 +26566,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2760563340199940535, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2760563340199940535, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2760563340199940535, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2760563340199940535, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2892370056225337160, guid: 1afe17518a14213478afccad59687b1c, type: 3}
       propertyPath: m_Color.a
@@ -35792,7 +35787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47d9a9f4723344d09e44c25848f4140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roofObject: {fileID: 1615168579}
+  roofObject: {fileID: 0}
 --- !u!1 &1615903034
 GameObject:
   m_ObjectHideFlags: 0
@@ -36798,19 +36793,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7986129807089724169, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8434824762051719496, guid: f4ae769ba4a46d84c9e04c6914423ca2, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -37566,10 +37561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4af91552fb44a93aef94398796cef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roofs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  roofs: []
 --- !u!4 &1695853767
 Transform:
   m_ObjectHideFlags: 0

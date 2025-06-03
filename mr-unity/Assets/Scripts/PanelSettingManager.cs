@@ -1,11 +1,12 @@
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Meta.XR.MRUtilityKit;
-using UnityEngine.UI;
-public class PanelSettingManager : MonoBehaviour
-{
+using Fusion;
+using System.Collections.Generic;
+using System.Collections;
+using System;
 
+public class PanelSettingManager : NetworkBehaviour
+{
    [SerializeField] private TMP_InputField _txtAngle;
    [SerializeField] private TMP_InputField _txtMember;
    [SerializeField] private TMP_InputField _txtPanel;
@@ -18,66 +19,46 @@ public class PanelSettingManager : MonoBehaviour
    [SerializeField] private TextMeshProUGUI _lblEnergyEfficiency;
    [SerializeField] private TextMeshProUGUI _lblPrice;
 
-
-   [SerializeField] private List<GameObject> roofAssets;
-   //private List<GameObject> panels;
    [SerializeField] private SpawnSolarPanel spawnSolarPanel;
-   //[SerializeField] private GameObject roofPanel15;
-   //[SerializeField] private GameObject roofSnap15;
-   //[SerializeField] private GameObject roofPanel30;
-   //[SerializeField] private GameObject roofSnap30;
+   [SerializeField] private List<GameObject> roofAssets;
 
    [SerializeField] private int angleInterval = 15;
-
    [SerializeField] private int energyConsumptionAverage = 100;
-   private WeatherApiManager weatherApiManager;
 
+   private WeatherApiManager weatherApiManager;
    private int currentAngle = 0;
    private int currentMember = 0;
-   // Start is called once before the first execution of Update after the MonoBehaviour is created
+
    void Start()
    {
-      weatherApiManager = GameObject.Find("WeatherApiManager").GetComponent<WeatherApiManager>();
-      // _lblConsumptionEnergy.text = energyConsumptionAverage.ToString();
-      //spawnSolarPanel = GameObject.Find("SpawnSolarPanel").GetComponent<SpawnSolarPanel>();
-      OnCityChange("MAD");
+      weatherApiManager = FindAnyObjectByType<WeatherApiManager>();
+      weatherApiManager.OnCityChanged += UpdateUiFromResponse;
    }
 
-   // Update is called once per frame
-   void Update()
+   private void UpdateUiFromResponse()
    {
-
-   }
-
-   private void Awake()
-   {
+      if (weatherApiManager != null)
+      {
+         _lblTotalPanelEnergy.text = weatherApiManager.TotalEnergy + " KW/Year";
+         _lblEnergyEfficiency.text = weatherApiManager.TotalOptimalEnergy > 0 ? (weatherApiManager.TotalEnergy / weatherApiManager.TotalOptimalEnergy * 100f).ToString("F2") : "0" + " %";
+         _lblPrice.text = (int.Parse(_txtPanel.text) * 6000) + " SEK";
+         _lblCity.text = weatherApiManager.City;
+      }
    }
 
    public void OnCityChange(string city)
    {
       if (weatherApiManager != null)
       {
-         if (weatherApiManager.HasStateAuthority)
-         {
-            weatherApiManager.callingSolarEnergyApi(city, _txtAngle.text, _txtPanel.text);
-         }
+         weatherApiManager.ChangeCity(city, _txtAngle.text, _txtPanel.text);
 
-         // Use synced data
-         _lblTotalPanelEnergy.text = weatherApiManager.TotalEnergy.ToString() + " KW/Year";
-         _lblEnergyEfficiency.text = (weatherApiManager.TotalOptimalEnergy > 0
-             ? (weatherApiManager.TotalEnergy / weatherApiManager.TotalOptimalEnergy * 100).ToString("F1")
-             : "0") + " %";
-
-         _lblPrice.text = (int.Parse(_txtPanel.text) * 6000).ToString() + " SEK";
-         _lblCity.text = weatherApiManager.City.ToString();
-         Debug.Log(city);
+         // Invoke(nameof(UpdateUiFromResponse), 2f); // Delay to let RPC complete (or add a callback/event)
       }
       else
       {
-         Debug.LogError("WeatherAPIManager not set.");
+         Debug.LogError("WeatherAPIManager not found.");
       }
    }
-
 
    public void ChangeAngle(string type)
    {

@@ -6060,6 +6060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 269296779}
   - component: {fileID: 269296778}
+  - component: {fileID: 269296780}
   m_Layer: 0
   m_Name: PanelSettingManager
   m_TagString: Untagged
@@ -6089,13 +6090,13 @@ MonoBehaviour:
   _lblTotalPanelEnergy: {fileID: 444193261}
   _lblEnergyEfficiency: {fileID: 1054278659}
   _lblPrice: {fileID: 355047941}
+  spawnSolarPanel: {fileID: 121899116}
   roofAssets:
   - {fileID: 417733513}
   - {fileID: 1615168579}
   - {fileID: 581334824}
   - {fileID: 761341813}
   - {fileID: 888918956}
-  spawnSolarPanel: {fileID: 121899116}
   angleInterval: 15
   energyConsumptionAverage: 100
 --- !u!4 &269296779
@@ -6113,6 +6114,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &269296780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269296777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 1077240992
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 269296778}
+  ForceRemoteRenderTimeframe: 0
 --- !u!1 &271008233
 GameObject:
   m_ObjectHideFlags: 0
@@ -11686,7 +11706,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517238806}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
@@ -42050,6 +42070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1876866988}
   - component: {fileID: 1876866987}
+  - component: {fileID: 1876866989}
   m_Layer: 0
   m_Name: WeatherApiManager
   m_TagString: Untagged
@@ -42069,10 +42090,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19af40b82aaa4a13a4f42a80417e3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BestAngle: 0
-  _TotalEnergy: 0
-  _TotalOptimalEnergy: 0
-  _City:
+  _City: 
+  _Angle: 
+  _PanelCount: 
+  _SerializedResponse:
     _length: 0
     _data:
       Data: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -42091,6 +42112,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1876866989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876866986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 3585214048
+  ObjectInterest: 1
+  Flags: 262145
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 1876866987}
+  ForceRemoteRenderTimeframe: 0
 --- !u!1 &1877801319
 GameObject:
   m_ObjectHideFlags: 0

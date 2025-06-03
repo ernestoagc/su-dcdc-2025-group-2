@@ -14,7 +14,6 @@ public class WeatherApiManager : MonoBehaviour
     void Start()
     {
         objSolarEnergy = new SolarEnergyResponse();
-        //StartCoroutine(GetData());
 
     }
     
@@ -31,8 +30,6 @@ public class WeatherApiManager : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
 
-                string asdf = request.ToString();
-                Debug.LogWarning(asdf.);
                 string json = request.result.ToString();
                 // string json = File.ReadAllText("Assets/Scripts/TestJSON.json");
 

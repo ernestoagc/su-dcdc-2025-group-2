@@ -15,6 +15,8 @@ public class PanelSettingManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _lblCity;
     [SerializeField] private TextMeshProUGUI _lblAngle;
     [SerializeField] private TextMeshProUGUI _lblTotalPanelEnergy;
+    [SerializeField] private TextMeshProUGUI _lblEnergyEfficiency;
+    [SerializeField] private TextMeshProUGUI _lblPrice;
 
 
     [SerializeField] private List<GameObject> roofAssets;
@@ -62,10 +64,12 @@ public class PanelSettingManager : MonoBehaviour
             SolarEnergyResponse response = weatherApiManager.getSolarEnergyResponse();
 
             Debug.LogWarning(response);
-            /*
-            _txtTotalEnergy.text = response.totalEnergy.ToString();
-            _lblTotalPanelEnergy.text = response.totalEnergy.ToString();
-            */
+
+            //_txtTotalEnergy.text = response.totalEnergy.ToString();
+            _lblTotalPanelEnergy.text = response.totalEnergy.ToString() + " KW/Year";
+            _lblEnergyEfficiency.text = (response.totalEnergy / response.totalOptimalEnergy * 100).ToString() + " %";
+            _lblPrice.text = (int.Parse(_txtPanel.text) * 6000).ToString() + " SEK";
+
             _lblCity.text = response.city;
             Debug.Log(city);
         }

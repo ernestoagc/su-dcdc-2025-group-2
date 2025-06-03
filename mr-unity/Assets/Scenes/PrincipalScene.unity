@@ -6087,6 +6087,8 @@ MonoBehaviour:
   _lblCity: {fileID: 686056398}
   _lblAngle: {fileID: 1805733251}
   _lblTotalPanelEnergy: {fileID: 444193261}
+  _lblEnergyEfficiency: {fileID: 1054278659}
+  _lblPrice: {fileID: 355047941}
   roofAssets:
   - {fileID: 417733513}
   - {fileID: 1615168579}
@@ -35845,7 +35847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Roof Angel
+  m_text: Roof Angle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -55,10 +55,9 @@ public class PanelSettingManager : NetworkBehaviour
          {
             spawnSolarPanel.destroyPanels();
          }
-         else if (int.Parse(weatherApiManager.PanelCount) > int.Parse(_txtPanel.text))
+         else if (HasStateAuthority && int.Parse(weatherApiManager.PanelCount) > int.Parse(_txtPanel.text))
          {
-            Debug.Log("SPAWNING Panel");
-            AddPanel();
+            
          }
 
          _txtAngle.text = weatherApiManager.Angle;
@@ -214,6 +213,7 @@ public class PanelSettingManager : NetworkBehaviour
    {
       Debug.LogWarning("Adding Panel");
       spawnSolarPanel.solarPanels.Add(Runner.Spawn(spawnSolarPanel.solarPanel, spawnSolarPanel.spawnPosition, Quaternion.identity).gameObject);
+
       _txtPanel.text = spawnSolarPanel.getSolarPanels().Count.ToString();
       weatherApiManager.RPC_SetControlUi(_txtAngle.text, _txtMember.text, _txtPanel.text);
    }

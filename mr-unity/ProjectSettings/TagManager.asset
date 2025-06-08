@@ -29,6 +29,12 @@ TagManager:
   - SamplesInfoPanel
   - QDSUIToggleCheckboxRadio
   - Trash
+  - PanelRoof15
+  - PanelRoof30
+  - SnapZone
+  - PanelRoof45
+  - PanelRoof60
+  - PanelRoof75
   layers:
   - Default
   - TransparentFX

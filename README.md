@@ -1,68 +1,26 @@
 # SOLAR_XR
 
-## Explore the benifits of the solar panels with real-time statistics for your house!
+## Explore the benifits of the solar panels with real-time statistics for your house in Mixed Reality!
 
 ## Introduction
 
-This project is about **Solar Panels**
+This project is a Mixed Reality project about **Solar Panels** and their efficientency and benifits specificlly for your location
 
 ---
 
 ## Design Process
 
-The Design Process started with a **brainstorming session**, where each of us tried to think of as many problems, ideas, and solutions as possible, covering various disabilities, and solutions that could be completed within the given timeframe.
+The Design Process started with a **brainstorming session**, where each of us focused on ideas to create immersive project, following **Digital Twins** concept.
 
 <img src="vr-unity/readme/brainstorm.png" width="600" />  
 
-
-Afterward, each team member presented one idea to the classroom and received feedback on which option was the most logical to proceed with.
-
-<img src="vr-unity/readme/sketch.png" width="600" />  
-
-Once the project idea was decided, the team discussed the project purpose and the experience itself. This discussion helped build the **Design Document**, which included a timeline for each week.
-
-<img src="vr-unity/readme/whiteboard.jpg" width="600" />  
-
 ---
 
-### Persona
+### Environment
 
-To better understand people with sensory hypersensitivity, the team browsed through articles to learn about the challenges our target group faces in everyday life, how they feel about it, and how they cope with it.
-
-From that, two **personas** were created from the information gathered, with the goal of addressing their needs and pain points, and making decisions and solutions based on an person who fits the target group.
-
-#### John - Persona and User Journey Map
-
-<img src="vr-unity/readme/JohnPersona.png" width="600" />  
-<img src="vr-unity/readme/JohnJourney.png" width="600" />  
-
-#### Emma - Persona and User Journey Map
-
-<img src="vr-unity/readme/EmmaPersona.png" width="600" />  
-<img src="vr-unity/readme/EmmaJourney.png" width="600" />  
-
-After this process, the team identified key problems and developed solutions for how the whole experience would look. The solution is an experience designed to help users practice their stability while being distracted by objects and sounds that typically cause anxiety.
-
-The team envisioned a **Safe Space** and Environment where users can manipulate different options and find or increase their threshold level.
-
----
-
-### Classroom
-
-This would be achieved by using a menu where the user could activate disturbing sounds, trigger lights that flicker, and control the people in the room and their movement—challenges identified as particularly problematic for these individuals.
+...
 
 <img src="vr-unity/readme/classroom_scene.jpg" width="600" />  
----
-
-### Safe Space, Emergency Button, Tactile Feedback
-
-For safety, the safe space environment is where users enter once they press the **emergency button** attached to their chest.
-
-Users also have the option to control the **tactile feedback** they receive on their shoulders when someone approaches them in VR.
-
-<img src="vr-unity/readme/vestonbody.png" width="600" />  
-
-
 
 ---
 
@@ -76,7 +34,7 @@ The demo version of the experience was presented and tested by several people, p
 
 ### Features
 
-Feel The Edge includes the following features:
+Solar_XR includes the following features:
 
 - A **virtual classroom environment** where users can control their surroundings, such as adjusting the level of sound, light flickering, and controlling people’s movements.
 - An **easily accessible intuitive emergency button** that leads users to the Safe Space if they feel uncomfortable and wish to stop the experience.
@@ -163,13 +121,10 @@ To use SolarXR and interact with its features, follow the guidelines below:
 
 ## References
 
-Sounds:
-
-- ...
-
 3D Assets:
 
-- ...
+- https://assetstore.unity.com/packages/3d/props/level-design-modular-starter-pack-288972
+- https://assetstore.unity.com/packages/3d/props/industrial/high-quality-solar-panel-175231
 
 ---
 

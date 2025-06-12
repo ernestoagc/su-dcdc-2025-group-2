@@ -36,23 +36,14 @@ The demo version of the experience was presented and tested by several people, p
 
 Solar_XR includes the following features:
 
-- A **virtual classroom environment** where users can control their surroundings, such as adjusting the level of sound, light flickering, and controlling people’s movements.
-- An **easily accessible intuitive emergency button** that leads users to the Safe Space if they feel uncomfortable and wish to stop the experience.
-- **Simulation of people walking near you**, where vibration motors activate when people walk close to you.
+- A **virtual house** where users can control their surroundings, such as adjusting the level of sound, light flickering, and controlling people’s movements.
+- An **configuration panel** that leads users to the Safe Space if they feel uncomfortable and wish to stop the experience.
+- An **interactive map**, which contains three buttons to select the city that will be used as the reference for displaying the solar energy produced in that location.
+- A **virtual tablet**, where the user can view information such as the number of inhabitants in the house, the potential energy savings, the number of installed solar panels, and the roof’s tilt angle.
 
 ---
 
-### Features Decisions
-
-- Hand tracking was chosen over Controllers in order to simplify it for inexperienced users and to make it feel more natural.
-- Stationary Environment was decided on in order to reduce risk of motion sickness and because enabling movement provides no benefit to the experience at the moment with current version.
-- Button on chest was chosen to provide an intuitive tap out button, which can be a faster way to exit the experience when people get nervous.
-- Menu panel - The menu was initially put in front of the user, and they could activate by poking the left hand. Two problems occurred during testing, one that the users would spend most of the experience with menu activated, that would cover most of the screen and ruin the experience. Another one was having difficulties to pinch effectively, without spending a lot of time on it. This becomes a problem, especially when people start to panic.
-- Poke - this decision was chosen after user testing, poking feels more natural and it is easier interaction for unexperienced people. Pinch was another interaction that was tested and used at the beginning. Removing pinch and changing it to poke also makes more sense as the participants get used to poke interaction before the experience starts, and having the same interaction throughout whole experience ensures that the users are quick and comfortable.
-
----
-
-#### Watch the DEMO VIDEO or try out the live version by [this GitHub Repository](https://github.com/ernestoagc/su-det-2025-group-1)
+#### Watch the DEMO VIDEO or try out the live version by [this GitHub Repository](https://github.com/ernestoagc/su-dcdc-2025-group-2)
 
 ---
 

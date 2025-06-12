@@ -12,15 +12,15 @@ This project is a Mixed Reality project about **Solar Panels** and their efficie
 
 The Design Process started with a **brainstorming session**, where each of us focused on ideas to create immersive project, following **Digital Twins** concept.
 
-<img src="vr-unity/readme/brainstorm.png" width="600" />  
+<img src="readme/brainstorm-design.png" width="500" />  
 
 ---
 
-### Environment
+### Architecture Diagram
 
-...
+order to understand how we can obtain information about the energy produced by solar panels depending on their installation angle, a web service has been developed. This service uses data provided by the [Photovoltaic Geographical Information System (PVGIS)](https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en). Additionally, we will use Photon to enable this interaction to be collaborative.
 
-<img src="vr-unity/readme/classroom_scene.jpg" width="600" />  
+<img src="readme/dcdc-architecture" width="500" />  
 
 ---
 

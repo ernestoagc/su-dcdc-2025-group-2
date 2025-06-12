@@ -15,6 +15,11 @@ The Design Process started with a **brainstorming session**, where each of us fo
 <img src="readme/brainstorm-design.png" width="500" />  
 
 ---
+## Digital Twin with solar Panel
+
+In this project, we propose the development of a Digital Twin of a residential house using Unity. This virtual representation will allow users to interactively explore the installation and performance of solar panels under different conditions, such as roof tilt angles and panel quantities. The Digital Twin will be enriched with real-world data obtained from the Photovoltaic Geographical Information System (PVGIS), provided by the **European Commission’s Joint Research Centre** (JRC) through their public dataset (https://re.jrc.ec.europa.eu/pvg_tools/en/). By integrating this reliable dataset into the simulation, the system can provide realistic estimations of solar energy production based on geographical location, roof orientation, and other environmental parameters. This solution not only offers an interactive way to visualize and understand solar energy potential but also supports collaborative adjustments through Photon for multi-user experiences. 
+
+---
 
 ### Architecture Diagram
 

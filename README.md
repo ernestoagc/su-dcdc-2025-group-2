@@ -112,8 +112,8 @@ To use SolarXR and interact with its features, follow the guidelines below:
 
 
   <img src="readme/usage-1.jpeg" width="550" />
-  <img src="readme/usage-1.jpeg" width="550" />
-  <img src="readme/usage-1.jpeg" width="550" />
+  <img src="readme/usage-2.jpeg" width="550" />
+  <img src="readme/usage-3.jpeg" width="550" />
 
 ---
 

@@ -48,7 +48,7 @@ Solar_XR includes the following features:
 
 ---
 
-#### Watch the DEMO VIDEO or try out the live version by [this GitHub Repository](https://github.com/ernestoagc/su-dcdc-2025-group-2)
+#### [Watch the DEMO VIDEO or try out the live version](https://drive.google.com/file/d/1TLQLkP2sWuyGZj6iuh0IJgn3bl3QgaqV/view)
 
 ---
 
@@ -109,9 +109,11 @@ To use SolarXR and interact with its features, follow the guidelines below:
 2. Open SolarXR application on your VR headset.
 3. Once in the application, you will see a house and panels, start the expirience by pressing buttons on the panels and adjusting parameters for your needs.
 
-## Configuration
 
-...
+
+  <img src="readme/usage-1.jpeg" width="550" />
+  <img src="readme/usage-1.jpeg" width="550" />
+  <img src="readme/usage-1.jpeg" width="550" />
 
 ---
 

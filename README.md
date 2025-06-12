@@ -20,7 +20,7 @@ The Design Process started with a **brainstorming session**, where each of us fo
 
 order to understand how we can obtain information about the energy produced by solar panels depending on their installation angle, a web service has been developed. This service uses data provided by the [Photovoltaic Geographical Information System (PVGIS)](https://joint-research-centre.ec.europa.eu/photovoltaic-geographical-information-system-pvgis_en). Additionally, we will use Photon to enable this interaction to be collaborative.
 
-<img src="readme/dcdc-architecture" width="500" />  
+<img src="readme/dcdc-architecture.png" width="500" />  
 
 ---
 
